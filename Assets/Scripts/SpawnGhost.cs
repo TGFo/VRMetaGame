@@ -9,6 +9,7 @@ public class SpawnGhost : MonoBehaviour
     public float minEdgeDistance = .3f;
     public float normalOffset;
     public MRUKAnchor.SceneLabels spawnLable;
+    public MRUK.SurfaceType surface;
     public int spawnTry = 1000;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +39,7 @@ public class SpawnGhost : MonoBehaviour
         int currentTry = 0;
         while(currentTry < spawnTry)
         {
-            bool hasFoundPosition = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.VERTICAL, minEdgeDistance, new LabelFilter(spawnLable), out Vector3 pos, out Vector3 norm);
+            bool hasFoundPosition = room.GenerateRandomPositionOnSurface(surface, minEdgeDistance, new LabelFilter(spawnLable), out Vector3 pos, out Vector3 norm);
             if (hasFoundPosition)
             {
                 Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
