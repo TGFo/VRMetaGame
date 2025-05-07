@@ -1019,7 +1019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &413667343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,12 +1033,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 8513261917062517404, guid: 61785958f16fed3499a7c2392e0cb5b0, type: 3}
+  destroyerPrefab: {fileID: 1012946950821411129, guid: 1dd12e01a7bdf6a4db18e02839162256, type: 3}
   spawnTimer: 1
   minEdgeDistance: 0.3
   normalOffset: -1
   spawnLable: 32772
   surface: 4
   spawnTry: 1000
+  maxSpawnedGhostPosts: 5
+  spawnCount: 0
+  navBuilder: {fileID: 0}
+  spawnPositions: []
+  failSafeCount: 0
+  failsafeCountMax: 1000
 --- !u!4 &413667344
 Transform:
   m_ObjectHideFlags: 0
@@ -2540,9 +2547,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: DestructibleMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680237, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: _reserveSpace
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201637225824680237, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
+      propertyPath: _maxPointsCount
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680237, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: _globalMeshMaterial

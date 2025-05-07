@@ -111,9 +111,10 @@ GameObject:
   - component: {fileID: 4240538451482186628}
   - component: {fileID: 2342812991099135776}
   - component: {fileID: 1040433347350774678}
+  - component: {fileID: 4359510653791999087}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: EnemyThrowable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,6 +286,29 @@ MonoBehaviour:
   _handAligment: 1
   _handGrabPoses:
   - {fileID: 239383413660719317}
+--- !u!136 &4359510653791999087
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513261917062517404}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &3957121792524409954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,41 +384,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b5cceeaee5d78ad43bd4dd541d4a54fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1873148929814816426}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5cceeaee5d78ad43bd4dd541d4a54fc, type: 3}
 --- !u!4 &3557909884741794697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5cceeaee5d78ad43bd4dd541d4a54fc, type: 3}
   m_PrefabInstance: {fileID: 3957121792524409954}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4191704033432625459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b5cceeaee5d78ad43bd4dd541d4a54fc, type: 3}
-  m_PrefabInstance: {fileID: 3957121792524409954}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1873148929814816426
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4191704033432625459}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.01
-  m_Height: 0.03
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -0.005}
