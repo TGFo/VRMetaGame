@@ -17,6 +17,6 @@ public class UIScripts : MonoBehaviour
     }
     public void ChangeText()
     {
-        text.text = "Point with your right hand to shoot lazer";
+        text.text = "Point with your right hand to shoot lazer\nThrow ghosts into orbs";
     }
 }
