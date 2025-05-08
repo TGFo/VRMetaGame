@@ -12,7 +12,7 @@ public class FireLaser : MonoBehaviour
     public float lineShowTimer = 0.3f;
     public float impactTimer = 1;
     public OVRInput.RawButton shootButton;
-    public Vector3 rayDirection;
+    Vector3 rayDirection;
     bool usingHands = true;
     public UnityEvent onShoot = new UnityEvent();
     public UnityEvent<GameObject> onHit = new UnityEvent<GameObject>();

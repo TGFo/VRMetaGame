@@ -23,4 +23,8 @@ public class RuntImeNavmeshBuilder : MonoBehaviour
         yield return new WaitForEndOfFrame();
         navMeshSurface.BuildNavMesh();
     }
+    public void ClearNav()
+    {
+        navMeshSurface.RemoveData();
+    }
 }

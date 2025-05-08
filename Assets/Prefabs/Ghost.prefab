@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 2342812991099135776}
   - component: {fileID: 1040433347350774678}
   - component: {fileID: 4359510653791999087}
+  - component: {fileID: 4459527828223962048}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: EnemyThrowable
@@ -309,6 +310,55 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4459527828223962048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513261917062517404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 1040433347350774678}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8212850970454655164}
+        m_TargetAssemblyTypeName: Ghost, Assembly-CSharp
+        m_MethodName: OnGhostGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3957121792524409954
 PrefabInstance:
   m_ObjectHideFlags: 0

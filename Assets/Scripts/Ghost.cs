@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,5 +31,9 @@ public class Ghost : MonoBehaviour
         agent.enabled= false;
         yield return new WaitForSeconds(1);
         agent.enabled = true;
+    }
+    public void OnGhostGrab()
+    {
+        Debug.Log("picked up");
     }
 }

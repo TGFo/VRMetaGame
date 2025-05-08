@@ -1,4 +1,5 @@
 using Meta.XR.MRUtilityKit;
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class SpawnGhost : MonoBehaviour
     public int spawnCount = 0;
     public RuntImeNavmeshBuilder navBuilder;
     public List<Vector3> spawnPositions = new List<Vector3>();
+    public IInteractorView interactorView;
     [SerializeField]int failSafeCount = 0;
     [SerializeField]int failsafeCountMax = 1000;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +38,10 @@ public class SpawnGhost : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > spawnTimer)
         {
-            SpawnGhostAtRandom();
+            if(spawnPositions.Count >= maxSpawnedGhostPosts)
+            {
+                SpawnGhostAtRandom();
+            }
             timer = 0;
         }
     }
@@ -52,9 +57,19 @@ public class SpawnGhost : MonoBehaviour
             {
                 Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
                 randomPositionNormalOffset.y = 0;
-
-                Instantiate(ghostPrefab, randomPositionNormalOffset, Quaternion.identity);
-                return;
+                Mathf.FloorToInt(randomPositionNormalOffset.x);
+                Mathf.FloorToInt(randomPositionNormalOffset.z);
+                if(!spawnPositions.Contains(randomPositionNormalOffset))
+                {
+   
+                    Instantiate(ghostPrefab, randomPositionNormalOffset, Quaternion.identity);
+                    return;
+                }
+                else
+                {
+                    currentTry++;
+                }
+                
             }
             else
             {
@@ -83,15 +98,26 @@ public class SpawnGhost : MonoBehaviour
                 Debug.Log("spawned");
                 Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
                 randomPositionNormalOffset.y = 0;
-                spawnPositions.Add(randomPositionNormalOffset);
-                Instantiate(destroyerPrefab, randomPositionNormalOffset, Quaternion.identity);
-                spawnCount++;
+                Mathf.RoundToInt(randomPositionNormalOffset.x);
+                Mathf.RoundToInt(randomPositionNormalOffset.z);
+                if (!spawnPositions.Contains(randomPositionNormalOffset))
+                {
+                    spawnPositions.Add(randomPositionNormalOffset);
+                    Instantiate(destroyerPrefab, randomPositionNormalOffset, Quaternion.identity);
+                    spawnCount++;
+                }
+                else
+                {
+                    failSafeCount++;
+                }
+                
             }
             else
             {
                 failSafeCount++;
             }
         }
+        navBuilder.ClearNav();
         navBuilder.BuildNav();
     }
 }
