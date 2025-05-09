@@ -18,6 +18,7 @@ public class GhostThrowPost : MonoBehaviour
         if(other.gameObject.CompareTag(enemyTag))
         {
             Debug.Log("Destroy");
+            GameManager.instance.IncreaseScore();
             Destroy(other.gameObject);
         }
     }

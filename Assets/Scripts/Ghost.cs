@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Ghost : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public float speed = 1.0f;
+    public float speed = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +23,7 @@ public class Ghost : MonoBehaviour
         agent.speed = speed;
         if(Vector3.Distance(transform.position, targetPosition) < .5)
         {
+            GameManager.instance.AttackPlayer(1);
             Destroy(gameObject);
         }
     }

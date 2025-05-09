@@ -8,8 +8,9 @@ public class SpawnGhost : MonoBehaviour
 {
     public GameObject ghostPrefab;
     public GameObject destroyerPrefab;
-    public float spawnTimer = 1;
+    public float spawnTimer = 20;
     private float timer = 0;
+    [SerializeField]float gameTimer = 0;
     public float minEdgeDistance = .3f;
     public float normalOffset;
     public MRUKAnchor.SceneLabels spawnLable;
@@ -25,6 +26,7 @@ public class SpawnGhost : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameTimer = spawnTimer;
         StartCoroutine(WaitForSpawn());
     }
     // Update is called once per frame
@@ -36,12 +38,14 @@ public class SpawnGhost : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+        if(GameManager.instance.gameOver) return;
         if(timer > spawnTimer)
         {
             if(spawnPositions.Count >= maxSpawnedGhostPosts)
             {
                 SpawnGhostAtRandom();
             }
+            spawnTimer = gameTimer;
             timer = 0;
         }
     }
@@ -77,6 +81,11 @@ public class SpawnGhost : MonoBehaviour
             }
         }
 
+    }
+    private void FixedUpdate()
+    {
+        gameTimer -= Time.fixedDeltaTime;
+        gameTimer = Mathf.Clamp(gameTimer, 0.5f, 100);
     }
     public IEnumerator WaitForSpawn()
     {
