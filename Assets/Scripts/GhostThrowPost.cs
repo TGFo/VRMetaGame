@@ -22,4 +22,13 @@ public class GhostThrowPost : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag(enemyTag))
+        {
+            Debug.Log("Destroy");
+            GameManager.instance.IncreaseScore();
+            Destroy(other.gameObject);
+        }
+    }
 }
